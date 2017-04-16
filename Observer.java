@@ -1,5 +1,5 @@
-package com.sd.task;
+package headfirst.observer.weather;
 
 public interface Observer {
-  public void update(String name, int phonenumber);
+  public void update(float temp, float humidity, float pressure);
 }
