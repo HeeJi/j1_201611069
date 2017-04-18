@@ -1,24 +1,14 @@
-package headfirst.factory.pizzafm;
+package headfirst.factory.pizzas;
 
-public class PizzaTestDrive { 
+public class PizzaTestDrive {
   public static void main(String[] args) {
-    PizzaStore nyStore = new NYPizzaStore();
-    PizzaStore chicagoStore = new ChicagoPizzaStore();
-    Pizza pizza = nyStore.orderPizza("cheese");
-    System.out.println("Ethan ordered a " + pizza.getName() + "\n");
-    pizza = chicagoStore.orderPizza("cheese");
-    System.out.println("Joel ordered a " + pizza.getName() + "\n");
-    pizza = nyStore.orderPizza("clam");
-    System.out.println("Ethan ordered a " + pizza.getName() + "\n");
-    pizza = chicagoStore.orderPizza("clam");
-    System.out.println("Joel ordered a " + pizza.getName() + "\n");
-    pizza = nyStore.orderPizza("pepperoni");
-    System.out.println("Ethan ordered a " + pizza.getName() + "\n");
-    pizza = chicagoStore.orderPizza("pepperoni");
-    System.out.println("Joel ordered a " + pizza.getName() + "\n");
-    pizza = nyStore.orderPizza("veggie");
-    System.out.println("Ethan ordered a " + pizza.getName() + "\n");
-    pizza = chicagoStore.orderPizza("veggie");
-    System.out.println("Joel ordered a " + pizza.getName() + "\n");
-  } 
+    SimplePizzaFactory factory = new SimplePizzaFactory();
+    PizzaStore store = new PizzaStore(factory);
+    
+    // Pizza pizza = store.orderPizza("cheese"); 
+    // System.out.println("We ordered a "+pizza.getName()+"\n"); 
+
+    Pizza pizza = store.orderPizza("potato");
+    System.out.println("We ordered a " + pizza.getName() + "\n");
+  }
 }

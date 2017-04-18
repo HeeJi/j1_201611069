@@ -1,12 +1,13 @@
-package headfirst.factory.pizzafm;
+package headfirst.factory.pizzas;
 
-public abstract class PizzaStore {
- 
-  abstract Pizza createPizza(String item);
- 
+public class PizzaStore {
+  SimplePizzaFactory factory;
+  public PizzaStore(SimplePizzaFactory factory) {
+    this.factory = factory;
+  }
   public Pizza orderPizza(String type) {
-    Pizza pizza = createPizza(type);
-    System.out.println("--- Making a " + pizza.getName() + " ---");
+    Pizza pizza;
+    pizza = factory.createPizza(type);
     pizza.prepare();
     pizza.bake();
     pizza.cut();
